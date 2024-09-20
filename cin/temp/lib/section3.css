@@ -1,0 +1,85 @@
+/* Section 3 styling */
+.section3 {
+    position: relative;
+    height: 100vh;
+    background: url('../assets/section3/background.jpg') center/cover no-repeat;
+    /* Background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent overflow */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.text {
+    margin-bottom: 50px;
+    /* Adjust spacing as needed */
+}
+
+.text h1, .text h2 {
+    color: #ffffff;
+    /* Text color */
+}
+
+.text p {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Globe styling */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#current-globe {
+    width: 150px;
+    /* Adjust size as needed */
+    height: auto;
+    transition: all 0.5s ease-in-out;
+    /* Smooth transition */
+}
+
+/* Planet links styling */
+.planet-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    /* Positioning relative to the globe */
+    width: 100%;
+}
+
+.planet-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.planet-links a:hover {
+    color: #ffcc00;
+    /* Highlight color */
+}

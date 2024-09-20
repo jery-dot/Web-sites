@@ -1,0 +1,79 @@
+/* #glob1 {
+    width: 200px;
+    transition: transform 1s ease-in-out;
+} */
+
+/* Section 2 styling */
+.section2 {
+    /* position: relative; */
+    height: 100vh;
+    background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat;
+    /* Section 2 background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -400px;
+    box-sizing: border-box;
+}
+
+.section2-content {
+    display: flex;
+    align-items: center;
+}
+
+.section2 .text {
+    width: 40%;
+    padding: 20px;
+    color: white;
+    /* Adjust text color */
+    font-size: 1.2rem;
+    margin-left: 70px;
+}
+
+.section2 .text h1 {
+    font-size: 5.5rem;
+    /* Adjust the size as needed */
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.section2 .text h2 {
+    font-size: 3rem;
+    /* Adjust the size as needed */
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.section2 .text p {
+    font-size: 2rem;
+    /* Adjust the size as needed */
+    margin-bottom: 10px;
+    text-align: justify;
+    color: #ffffff;
+}
+
+
+.section2 .image {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#small-globe {
+    width: 70%;
+    height: auto;
+    transition: all 0.5s ease-in-out;
+    /* position: absolute; */
+    right: 50px;
+    top: 50px;
+    z-index: 2;
+    /* margin-left: 100px; */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section2 .text, .section2 .image {
+        width: 100%;
+        text-align: center;
+    }
+}

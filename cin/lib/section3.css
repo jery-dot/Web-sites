@@ -1,0 +1,128 @@
+/* Section 3 styling */
+.section3 {
+    position: relative;
+    height: 100vh;
+    background: url('../assets/section2/Nebula_1.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.section3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.section3 .text {
+    margin-top: -400px;
+}
+
+.section3 .text h1, .section3 .text h2 {
+    color: #ffffff;
+}
+
+.section3 .text h1 {
+    margin-bottom: 20px;
+    font-size: 6rem;
+}
+
+.section3 .text p {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 50px;
+}
+
+/* Globe styling */
+.section3 .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.section3 #current-globe {
+    width: 1000px;
+    height: auto;
+    margin-bottom: -700px;
+    transition: all 0.5s ease-in-out;
+    z-index: -21;
+}
+
+/* Planet links styling */
+.section3 .planet-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 510px; /* Half of the diameter */
+    width: 1020px; /* Full diameter */
+    margin: 0 auto; /* Center the container */
+}
+
+.section3 .planet-links {
+    position: absolute;
+    width: 100%;
+    height: 510px;
+    z-index: 1;
+    /* Planet links will be positioned by JavaScript */
+}
+
+.section3 .planet-links a {
+    position: absolute; /* To be positioned by JavaScript */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    margin: 0 5px;
+    transform-origin: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section3 .planet-links a:hover {
+    color: #ffcc00;
+    /* Highlight color */
+}
+
+/* Initial state for smooth transitions */
+.section3 .text h1, .text h2, .text p {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section3 .text h1, .text h2, .text p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section3 .text h1.hidden, .text h2.hidden, .text p.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.section3 .text h1.visible, .text h2.visible, .text p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Planet Links Adjustments */
+/* Removed redundant .planet-container and planet-links styling that was duplicated */
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .section3 .text h1 {
+        font-size: 3rem;
+    }
+
+    .section3 .text p {
+        font-size: 1.5rem;
+    }
+
+    .section3 #current-globe {
+        width: 100%;
+        height: auto;
+    }
+}

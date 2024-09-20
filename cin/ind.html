@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circular-text {
+  position: relative;
+  width: 300px; /* Adjust size as per requirement */
+  height: 300px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.circular-text span {
+  position: absolute;
+  width: 20px; /* Adjust according to the size of the letter */
+  height: 20px;
+  transform-origin: 150px 150px; /* Half of the container size */
+}
+
+.circular-text span:nth-child(1) {
+  transform: rotate(0deg) translate(150px);
+}
+
+.circular-text span:nth-child(2) {
+  transform: rotate(15deg) translate(150px);
+}
+
+.circular-text span:nth-child(3) {
+  transform: rotate(30deg) translate(150px);
+}
+
+/* Add more children with increasing degrees */
+
+    </style>
+</head>
+<body>
+    <div class="circular-text">
+        <span>H</span>
+        <span>E</span>
+        <span>L</span>
+        <span>L</span>
+        <span>O</span>
+        </div>
+
+    
+</body>
+</html>

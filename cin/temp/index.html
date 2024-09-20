@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIN-Web</title>
+    <link href="lib/sec1-bot.css" rel="stylesheet"> 
+    <link href="lib/section1.css" rel="stylesheet"> 
+    <link href="lib/section2.css" rel="stylesheet"> 
+    <!-- <link href="lib/section3.css" rel="stylesheet">  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        
+        body{
+            background-color: black !important;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Section1 -->
+    <section id="section1" class="section1">
+        <video autoplay muted loop id="background-video">
+            <source src="assets/section1/bac-vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header">
+            <img 
+                data-aos="fade-up" 
+                data-aos-anchor-placement="top-center"
+                data-aos-duration="1500"
+                src="assets/cin-logo.png" alt="">
+            <h1 
+                data-aos="zoom-in"
+                data-aos-duration="2000"
+                 >creativity in nature</h1>
+            <h2 
+                data-aos="zoom-in"
+                data-aos-delay="2000"
+                data-aos-duration="2500">The shining star of digital success</h2>
+            <button 
+                data-aos="zoom-in"
+                data-aos-delay="2500"
+                data-aos-duration="2000" class="button-84"role="button">MAKE A WISH</button>
+        </div>
+        <video autoplay muted loop id="background-video">
+            <source src="assets/section1/bac-vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="footer">
+            <img id="glob1" src="assets/glob1.gif" alt="">
+        </div>
+    </section>
+
+    <!-- Section2 -->
+    <section id="section2" class="section2">
+        <div class="section2-content">
+            <div
+                data-aos="zoom-out-up"
+                data-aos-duration="2000"
+                class="text">
+                <h1>creativity in nature</h1>
+                <h2>Digital Marketing Agency</h2>
+                <p>CIN is a joyous celebration of human creativity. We are a group of hand-picked, like-minded professionals who have come together to make the ultimate creative team. Each of us is a game-changing expert in our respective areas. Together, we are CIN. We help clients harness the magic of social media, develop a domineering web presence, generate leads, grow brands and straight-up design their products, processes and projects as needed.</p>
+            </div>
+            <div class="image">
+                <img data-aos="fade-down-right" src="assets/glob1.gif" alt="Glob1" id="small-globe">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 3 -->
+    <!-- <section id="section3" class="section3">
+        <div class="section3-content">
+            <div class="text">
+                <h1>Why Choose Us?</h1>
+                <h2>Digital Marketing Agency</h2>
+                <p>CIN is a joyous celebration of human creativity. We are a group of hand-picked, like-minded professionals who have come together to make the ultimate creative team. Each of us is a game-changing expert in our respective areas. Together, we are CIN. We help clients harness the magic of social media, develop a domineering web presence, generate leads, grow brands and straight-up design their products, processes and projects as needed.</p>
+            </div>
+            <div class="footer">
+                <div class="planet-container">
+                    <img src="assets/glob1.gif" alt="Current Globe" id="current-globe">
+                    <div class="planet-links">
+                        <a href="#" data-planet="Mercury">Mercury</a>
+                        <a href="#" data-planet="Venus">Venus</a>
+                        <a href="#" data-planet="Earth">Earth</a>
+                        <a href="#" data-planet="Mars">Mars</a>
+                        <a href="#" data-planet="Jupiter">Jupiter</a>
+                        <a href="#" data-planet="Saturn">Saturn</a>
+                        <a href="#" data-planet="Uranus">Uranus</a>
+                        <a href="#" data-planet="Neptune">Neptune</a>
+                        <a href="#" data-planet="Pluto">Pluto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        window.addEventListener('scroll', function() {
+            const globe = document.getElementById('glob1');
+            const smallGlobe = document.getElementById('small-globe');
+            const section1 = document.getElementById('section1');
+            const section2 = document.getElementById('section2');
+            const section1Top = section1.getBoundingClientRect().top;
+            const section2Top = section2.getBoundingClientRect().top;
+
+            // Effect when Section 1 is scrolled out of view
+            if (section1Top < 0) {
+                globe.style.transform = 'scale(0.5) translateX(50vw)';
+                smallGlobe.style.transform = 'translate(0, 0)';
+            } else {
+                globe.style.transform = 'scale(1) translateX(0)';
+                smallGlobe.style.transform = 'translate(50px, 50px)';
+            }
+
+            // Show Section 2 content
+            if (section2Top <= window.innerHeight / 2) {
+                section2.style.opacity = 1;
+                section2.style.transform = 'translateY(0)';
+            } else {
+                section2.style.opacity = 0;
+                section2.style.transform = 'translateY(50px)';
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const planetLinks = document.querySelectorAll('.planet-links a');
+            const h2 = document.querySelector('.section3 .text h2');
+
+            planetLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const planetName = this.getAttribute('data-planet');
+                    h2.textContent = planetName;
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
