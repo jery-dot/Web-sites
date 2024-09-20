@@ -52,11 +52,20 @@ function handleGlobeTransition() {
        
     } else if (currentSection === 2) {
         // Transition when entering section 3
-        globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
-        globe1.style.transform = 'scale(1)';
-        globe1.style.left = ''; // Center horizontally in section 3
-        globe1.style.top = '70%';  // Move to the bottom of section 3
+        // globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
+        // globe1.style.transform = 'scale(0.4)';
+        // Set the width and height of the globe
+        globe1.style.width = '55%';
+        globe1.style.height = '100%';
+
+        // Position it at the bottom center
+        globe1.style.left = ''; // Center horizontally by subtracting half the width
+        // globe1.style.right = '10px'; // Center horizontally in section 3
+        // globe1.style.left = ''; // Center horizontally in section 3
+        globe1.style.top = '50%';  // Move to the bottom of section 3
         globe1.style.position = 'fixed'; // Keep it in view during the scroll
+        // globe1.style.transform = 'translateX(-2px)';
+
     } else {
         // Reset to initial state for section 1
         globe1.style.transform = 'scale(1)';

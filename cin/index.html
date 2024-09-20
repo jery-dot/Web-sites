@@ -345,112 +345,74 @@
     <script>
        // new CircleType(document.getElementById('planet-name')).radius(180);
         AOS.init();
-        /*window.addEventListener('scroll', function() {
-            const globe1 = document.getElementById('glob1');
-            const smallGlobe = document.getElementById('small-globe');
-            const section1 = document.getElementById('section1');
-            const section2 = document.getElementById('section2');
-            const section1Top = section1.getBoundingClientRect().top;
-            const section2Top = section2.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+       document.addEventListener('DOMContentLoaded', function() {
+        const sectionTitle = document.getElementById('section-title');
+        const sectionSubtitle = document.getElementById('section-subtitle');
+        const sectionDescription = document.getElementById('section-description');
+        const planetLinks = document.querySelectorAll('.planet-links a');
 
-            // When Section 1 starts to scroll out of view, move the globe to the center
-            if (section1Top < 0) {
-                globe1.style.transform = 'scale(0.5) translate(0, 80vw)';
-                globe1.style.position = 'fixed';
-                globe1.style.left = '70%';
-                globe1.style.top = '50%';
-                 setTimeout(() => {
-                    globe1.style.transform = 'translate(-50%, -50%) scale(0.5)';
-                    globe1.classList.add('reshap');
-                }, 10);
-                //globe1.style.transition-timing-function = 'ease-in';
-                //globe1.style.transform = 'translate(-50%, -50%) scale(0.5)';
-                //globe1.classList.add('reshap');
-                smallGlobe.style.transform = 'translate(0, 0)';
-                section2.style.visibility = 'visible';
-               
-            } else {
-                // Reset the globe back to its original position in section 1
-                globe1.style.position = 'absolute';
-                globe1.style.top = '';
-                globe1.style.left = '';
-                globe1.style.transform = 'scale(1) translateX(0)';
-                globe1.style.transition =  'transform 2s ease, top 2s ease, left 2s ease';
-                globe1.classList.remove('reshap');
-                smallGlobe.style.transform = 'translate(50px, 50px)';
-                section2.style.visibility = 'hidden';
-            }
+        // Diameter and radius of the circular arc
+        const arcDiameter = 520; // Arc diameter
+        const arcRadius = arcDiameter / 2 - 60;
+
+        // Positioning planets in an arc
+        const totalPlanets = planetLinks.length;
+        const angleStep = 180 / (totalPlanets - 1); // Angle step to distribute planets across the arc (half-circle)
+
+        planetLinks.forEach((link, index) => {
+            const angle = -180 + (angleStep * index);//const angle = angleStep * index - 90; // Calculate the angle for each planet (-180° to start at the bottom center)
+
+            // Calculate X and Y positions based on the angle
+            const x = arcRadius * Math.cos((angle * Math.PI) / 180);
+            const y = arcRadius * Math.sin((angle * Math.PI) / 180);
+
+            // Rotate each link based on its angle to follow the arc curvature
+            link.style.transform = `translate(${x-15}px, ${y-17}px) rotate(${angle + 90}deg)`;
+            link.style.bottom = '2px';
+            link.style.left = '50%';
+            link.style.zIndex = 10;
+
+            // Optionally adjust anchor point or text alignment for better visual alignment
+            link.style.transformOrigin = "center center"; 
         });
-*/document.addEventListener('DOMContentLoaded', function() {
-    const sectionTitle = document.getElementById('section-title');
-    const sectionSubtitle = document.getElementById('section-subtitle');
-    const sectionDescription = document.getElementById('section-description');
-    const planetLinks = document.querySelectorAll('.planet-links a');
 
-    // Diameter and radius of the circular arc
-    const arcDiameter = 550; // Arc diameter
-    const arcRadius = arcDiameter / 2;
+        // Click event handler for planet links
+        planetLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
 
-    // Positioning planets in an arc
-    const totalPlanets = planetLinks.length;
-    const angleStep = 180 / (totalPlanets - 1); // Angle step to distribute planets across the arc (half-circle)
+                // Remove active state from all planets
+                planetLinks.forEach(link => link.style.transform = link.style.transform.replace(' translateY(-10px)', ''));
 
-    planetLinks.forEach((link, index) => {
-        const angle = -180 + (angleStep * index);//const angle = angleStep * index - 90; // Calculate the angle for each planet (-90° to start at the bottom center)
+                // Set the clicked link to move up slightly
+                setTimeout(() => {
+                    this.style.transform += ' translateY(-10px)'; // Move the clicked planet up slightly
+                }, 300); // Delay for the transition effect
 
-        // Calculate X and Y positions based on the angle
-        const x = arcRadius * Math.cos((angle * Math.PI) / 180);
-        const y = arcRadius * Math.sin((angle * Math.PI) / 180);
+                // Get data attributes from the clicked link
+                const planet = this.getAttribute('data-planet');
+                const description = this.getAttribute('data-description');
 
-        // Rotate each link based on its angle to follow the arc curvature
-        link.style.transform = `translate(${x}px, ${y}px) rotate(${angle + 90}deg)`;
-        link.style.zIndex = 10;
+                // Add transition classes for animation
+                sectionTitle.classList.add('hidden');
+                sectionSubtitle.classList.add('hidden');
+                sectionDescription.classList.add('hidden');
 
-        // Optionally adjust anchor point or text alignment for better visual alignment
-        link.style.transformOrigin = "center center"; 
-    });
+                // Wait for transition to finish before updating text
+                setTimeout(() => {
+                    sectionTitle.textContent = planet;
+                    sectionSubtitle.textContent = description;
+                    sectionDescription.textContent = "Additional information about " + planet;
 
-    // Click event handler for planet links
-    planetLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-
-            // Remove active state from all planets
-            planetLinks.forEach(link => link.style.transform = link.style.transform.replace(' translateY(-10px)', ''));
-
-            // Set the clicked link to move up slightly
-            setTimeout(() => {
-                this.style.transform += ' translateY(-10px)'; // Move the clicked planet up slightly
-            }, 300); // Delay for the transition effect
-
-            // Get data attributes from the clicked link
-            const planet = this.getAttribute('data-planet');
-            const description = this.getAttribute('data-description');
-
-            // Add transition classes for animation
-            sectionTitle.classList.add('hidden');
-            sectionSubtitle.classList.add('hidden');
-            sectionDescription.classList.add('hidden');
-
-            // Wait for transition to finish before updating text
-            setTimeout(() => {
-                sectionTitle.textContent = planet;
-                sectionSubtitle.textContent = description;
-                sectionDescription.textContent = "Additional information about " + planet;
-
-                // Remove transition classes to make them visible again
-                sectionTitle.classList.remove('hidden');
-                sectionSubtitle.classList.remove('hidden');
-                sectionDescription.classList.remove('hidden');
-            }, 500); // Match this duration with the CSS transition duration
+                    // Remove transition classes to make them visible again
+                    sectionTitle.classList.remove('hidden');
+                    sectionSubtitle.classList.remove('hidden');
+                    sectionDescription.classList.remove('hidden');
+                }, 500); // Match this duration with the CSS transition duration
+            });
         });
     });
-});
 
- // Initialize CircleType for circular arrangement of planet names
-    //const circleType = new CircleType(document.getElementById('planet-name')).radius(180);
-    //$(circleType.element).fitText();
 
     </script>
     <script>
