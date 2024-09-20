@@ -352,8 +352,14 @@
         const planetLinks = document.querySelectorAll('.planet-links a');
 
         // Diameter and radius of the circular arc
-        const arcDiameter = 570; // Arc diameter
-        const arcRadius = arcDiameter / 2 - 50;
+        // const arcDiameter = 570; // Arc diameter
+        // const arcRadius = arcDiameter / 2 - 50;
+         const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // Dynamically set the diameter and radius based on the viewport size
+        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.55; // Set the arc diameter to 80% of the smallest dimension
+        const arcRadius = arcDiameter / 2;
 
         // Positioning planets in an arc
         const totalPlanets = planetLinks.length;
