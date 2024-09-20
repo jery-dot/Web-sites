@@ -123,14 +123,14 @@
             <div class="footer">
                 <div class="planet-container">
                     <div class="planet-links" id="planet-name">
-                        <a href="#" class="name planet1" data-planet="Mercury" data-description="The smallest planet in our solar system.">Mercury</a>
-                        <a href="#" class="name planet2" data-planet="Venus" data-description="The second planet from the sun, known for its thick atmosphere.">Venus</a>
-                        <a href="#" class="name planet3" data-planet="Earth" data-description="Our home planet, the only known planet to support life.">Earth</a>
-                        <a href="#" class="name planet4" data-planet="Mars" data-description="The red planet, known for its iron oxide surface.">Mars</a>
-                        <a href="#" class="name planet5" data-planet="Jupiter" data-description="The largest planet in our solar system, with a great red spot.">Jupiter</a>
-                        <a href="#" class="name planet6" data-planet="Saturn" data-description="Known for its extensive ring system.">Saturn</a>
-                        <a href="#" class="name planet7" data-planet="Uranus" data-description="An ice giant with a unique tilt.">Uranus</a>
-                        <a href="#" class="name planet8" data-planet="Neptune" data-description="The furthest planet from the sun, known for its blue color.">Neptune</a>
+                        <a href="#" class="name planet1" data-planet="Mercury" data-subtitle="Guaranteed Revenue or Your Money Back" data-description="Tired of getting everything except revenue? Most vendors who give you reach, engagement, promises, likes and efforts but no revenue but we stand behind our services and guarantee realistic revenue or your money back.">Mercury</a>
+                        <a href="#" class="name planet2" data-planet="Venus" data-subtitle="24/7 Customer Care" data-description="Are you an early morning bird or late night owl? At CIN, we are available, 24 hours a day, 7 days a week and 365 days a year. We understand that business never stops and creative ideas and calamities can happen anytime.">Venus</a>
+                        <a href="#" class="name planet3" data-planet="Earth" data-subtitle="Responsive Relationship Manager" data-description="Are you trying to reach your client manager for decades but not getting a proper response? No worries, CIN has heard your prayers. As a CIN client, you will be assigned a responsive “Super Man(ager)” who will reach out to you faster than Superman.">Earth</a>
+                        <a href="#" class="name planet4" data-planet="Mars" data-subtitle="" data-description="The red planet, known for its iron oxide surface.">Mars</a>
+                        <a href="#" class="name planet5" data-planet="Jupiter" data-subtitle="" data-description="The largest planet in our solar system, with a great red spot.">Jupiter</a>
+                        <a href="#" class="name planet6" data-planet="Saturn" data-subtitle="" data-description="Known for its extensive ring system.">Saturn</a>
+                        <a href="#" class="name planet7" data-planet="Uranus" data-subtitle="" data-description="An ice giant with a unique tilt.">Uranus</a>
+                        <a href="#" class="name planet8" data-planet="Neptune" data-subtitle="" data-description="The furthest planet from the sun, known for its blue color.">Neptune</a>
                     </div>
                 </div>
             </div>
@@ -352,8 +352,8 @@
         const planetLinks = document.querySelectorAll('.planet-links a');
 
         // Diameter and radius of the circular arc
-        const arcDiameter = 520; // Arc diameter
-        const arcRadius = arcDiameter / 2 - 60;
+        const arcDiameter = 570; // Arc diameter
+        const arcRadius = arcDiameter / 2 - 50;
 
         // Positioning planets in an arc
         const totalPlanets = planetLinks.length;
@@ -368,7 +368,8 @@
 
             // Rotate each link based on its angle to follow the arc curvature
             link.style.transform = `translate(${x-15}px, ${y-17}px) rotate(${angle + 90}deg)`;
-            link.style.bottom = '2px';
+            link.style.bottom = '10px';
+            link.style.fontWeight = '2rem';
             link.style.left = '50%';
             link.style.zIndex = 10;
 
@@ -391,6 +392,7 @@
 
                 // Get data attributes from the clicked link
                 const planet = this.getAttribute('data-planet');
+                const subtitle = this.getAttribute('data-subtitle');
                 const description = this.getAttribute('data-description');
 
                 // Add transition classes for animation
@@ -401,8 +403,8 @@
                 // Wait for transition to finish before updating text
                 setTimeout(() => {
                     sectionTitle.textContent = planet;
-                    sectionSubtitle.textContent = description;
-                    sectionDescription.textContent = "Additional information about " + planet;
+                    sectionSubtitle.textContent = subtitle;
+                    sectionDescription.textContent = description;
 
                     // Remove transition classes to make them visible again
                     sectionTitle.classList.remove('hidden');

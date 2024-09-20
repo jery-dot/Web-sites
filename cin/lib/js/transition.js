@@ -62,7 +62,7 @@ function handleGlobeTransition() {
         globe1.style.left = ''; // Center horizontally by subtracting half the width
         // globe1.style.right = '10px'; // Center horizontally in section 3
         // globe1.style.left = ''; // Center horizontally in section 3
-        globe1.style.top = '50%';  // Move to the bottom of section 3
+        globe1.style.top = '45%';  // Move to the bottom of section 3
         globe1.style.position = 'fixed'; // Keep it in view during the scroll
         // globe1.style.transform = 'translateX(-2px)';
 
