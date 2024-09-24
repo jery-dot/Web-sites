@@ -1,3 +1,46 @@
+.hidden {
+    display: none !important;
+}
+
+#section4 {
+    position: relative;
+    overflow: hidden;
+    height: 100vh; /* Full height for the section */
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#video-2 {
+    z-index: -1;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.planet-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+/* Add your existing service styles here */
+
+
 /*#video-bg {
     position: fixed;
     top: 0;
@@ -46,19 +89,22 @@
 
 .sect4-logo {
     display: flex;
+    /* top: -45px; */
     flex-direction: center;
     align-items: center;
     width: 250%;
-    max-width: 1000px;
+    /* max-width: 1000px; */
     height: auto;
-    margin-bottom: -70px;
+    /* margin-top: 0px; */
+    top: 50%;
+    left: 50%;
     margin-left: -220px;
 }
 
 .section4 .services {
     /* margin-top: -250px; */
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-60%, -60%);
     width: 80%;
@@ -72,16 +118,22 @@
 }
 
 .section4 .service {
+    /* width: 10px; */
+    text-align: center;
     position: absolute;
     text-decoration: none;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     white-space: nowrap;
     text-align: center;
-    size: 5rem;
+    size: 6rem;
     transition: transform 0.3s ease;
+}
+.section4 .content .planet-content .services a {
+    width: 10px;
+
 }
 
 /* Optional: Hover effect for each service link */
@@ -97,7 +149,7 @@
     position: absolute;
     display: inline-block;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 30px;
     color: #000;
     /* Change as needed */
     transition: transform 0.3s ease;
@@ -275,7 +327,7 @@
     }
 
     .services .service:nth-child(8) {
-        transform: rotate(280deg) translate(200px) rotate(-280deg);
+        transform: rotate(280deg) translate(270px, 250px) rotate(-280deg);
     }
 
     .services .service:nth-child(9) {

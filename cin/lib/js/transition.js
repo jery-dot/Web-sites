@@ -3,6 +3,10 @@ const sections = document.querySelectorAll('.section');
 const globe1 = document.getElementById('glob1');
 const section1 = document.getElementById('section1');
 const section2 = document.getElementById('section2');
+const video1 = document.getElementById('video-1');
+const video2 = document.getElementById('video-2');
+const content = document.getElementById('section4-content');
+
 
 // Initial globe1 styles for section 1
 // globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
@@ -17,25 +21,54 @@ document.addEventListener('wheel', (event) => {
         if (currentSection < sections.length - 1) {
             currentSection++;
             scrollToSection(currentSection);
-            handleGlobeTransition();
+            handleGlobeTransition(currentSection);
         }
     } else {
         // Scrolling up
         if (currentSection > 0) {
             currentSection--;
             scrollToSection(currentSection);
-            handleGlobeTransition();
+            handleGlobeTransition(currentSection);
         }
     }
 });
+// Function to detect the current section based on scroll position
+function detectCurrentSection() {
+    let currentSectionIndex = 0;
+
+    // Loop through all sections to find the current section based on scroll position
+    sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop; // Distance from the top of the page
+        const sectionHeight = section.offsetHeight; // Height of the section
+        const scrollPosition = window.scrollY; // Current scroll position
+
+        // Check if the current scroll position is within the section's range
+        if (scrollPosition >= sectionTop - sectionHeight / 2 && scrollPosition < sectionTop + sectionHeight / 2) {
+            currentSectionIndex = index;
+        }
+    });
+
+    // Set the global currentSection variable to the detected section
+    currentSection = currentSectionIndex;
+
+    // Optionally, log the current section index for debugging
+    console.log('Current Section:', currentSection);
+
+    // You can also trigger functions or animations based on the detected section
+    handleGlobeTransition(currentSection); // Call your transition function based on the new current section
+}
+
+// Add event listener for scroll events to detect the current section in real-time
+window.addEventListener('scroll', detectCurrentSection);
 
 function scrollToSection(sectionIndex) {
     sections[sectionIndex].scrollIntoView({
         behavior: 'smooth'
     });
 }
-function handleGlobeTransition() {
-    if (currentSection === 1) {
+function handleGlobeTransition(section) {
+    if (section === 1) {
+        globe1.classList.remove('hidden');
         // Reset to initial state for section 1
         // globe1.style.transform = 'scale(0.5) translate(0, 80vw)';
         globe1.style.position = 'fixed';
@@ -49,8 +82,9 @@ function handleGlobeTransition() {
         // globe1.style.transform = 'translate(-25%, -25%) scale(0.5)';
         section2.style.visibility = 'visible';
         // globe1.classList.add('reshap');
-       
-    } else if (currentSection === 2) {
+
+    } else if (section === 2) {
+        globe1.classList.remove('hidden');
         // Transition when entering section 3
         // globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
         // globe1.style.transform = 'scale(0.4)';
@@ -66,8 +100,23 @@ function handleGlobeTransition() {
         globe1.style.position = 'fixed'; // Keep it in view during the scroll
         // globe1.style.transform = 'translateX(-2px)';
 
+    } else if (section === 3) {
+
+        globe1.classList.add('hidden');
+        video1.classList.remove('hidden');
+        video2.classList.add('hidden');
+        content.classList.add('hidden');
+        video1.play();  // Start the first video when scrolled to section
+
+        video1.onended = function () {
+            video1.classList.add('hidden');  // Hide the first video after it finishes
+            video2.classList.remove('hidden');  // Show the second video
+            content.classList.remove('hidden');  // Display the HTML content
+            video2.play();
+        };
     } else {
         // Reset to initial state for section 1
+        globe1.classList.remove('hidden');
         globe1.style.transform = 'scale(1)';
         globe1.style.left = '50%'; // Center in section 1
         globe1.style.top = '80%';  // Adjust as needed for section 1
