@@ -15,7 +15,7 @@ const content = document.getElementById('section4-content');
 // globe1.style.top = '80%';  // Adjust this as needed
 // 
 
-document.addEventListener('wheel', (event) => {
+/*document.addEventListener('wheel', (event) => {
     if (event.deltaY > 0) {
         // Scrolling down
         if (currentSection < sections.length - 1) {
@@ -31,7 +31,7 @@ document.addEventListener('wheel', (event) => {
             handleGlobeTransition(currentSection);
         }
     }
-});
+});*/
 // Function to detect the current section based on scroll position
 function detectCurrentSection() {
     let currentSectionIndex = 0;
@@ -60,7 +60,7 @@ function detectCurrentSection() {
 
 // Add event listener for scroll events to detect the current section in real-time
 window.addEventListener('scroll', detectCurrentSection);
-
+addEventListener("load", detectCurrentSection);
 function scrollToSection(sectionIndex) {
     sections[sectionIndex].scrollIntoView({
         behavior: 'smooth'
@@ -69,36 +69,26 @@ function scrollToSection(sectionIndex) {
 function handleGlobeTransition(section) {
     if (section === 1) {
         globe1.classList.remove('hidden');
-        // Reset to initial state for section 1
-        // globe1.style.transform = 'scale(0.5) translate(0, 80vw)';
         globe1.style.position = 'fixed';
         globe1.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
         globe1.style.transform = 'scale(0.5)';
         globe1.style.left = '40%';
         globe1.style.top = '95%';
         globe1.style.position = 'absolute';
-        // globe1.classList.add('reshap');
-        // globe1.style.transform = 'translate(-100px, -100px)';
-        // globe1.style.transform = 'translate(-25%, -25%) scale(0.5)';
         section2.style.visibility = 'visible';
         // globe1.classList.add('reshap');
 
     } else if (section === 2) {
+        // Reset to initial state for section 1
         globe1.classList.remove('hidden');
-        // Transition when entering section 3
-        // globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
-        // globe1.style.transform = 'scale(0.4)';
-        // Set the width and height of the globe
         globe1.style.width = '55%';
         globe1.style.height = '100%';
 
         // Position it at the bottom center
         globe1.style.left = ''; // Center horizontally by subtracting half the width
-        // globe1.style.right = '10px'; // Center horizontally in section 3
-        // globe1.style.left = ''; // Center horizontally in section 3
         globe1.style.top = '45%';  // Move to the bottom of section 3
-        globe1.style.position = 'fixed'; // Keep it in view during the scroll
-        // globe1.style.transform = 'translateX(-2px)';
+        // globe1.style.position = 'fixed'; // Keep it in view during the scroll
+        // globe1.style.position = 'absolute';
 
     } else if (section === 3) {
 
@@ -125,8 +115,6 @@ function handleGlobeTransition(section) {
         globe1.style.top = '';
         globe1.style.left = '';
         globe1.style.transform = 'scale(1) translateX(0)';
-        // globe1.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
-        // globe1.style.transition = 'transform 2s ease, top 2s ease, left 2s ease';
         globe1.classList.remove('reshap');
         smallGlobe.style.transform = 'translate(50px, 50px)';
         section2.style.visibility = 'hidden';
