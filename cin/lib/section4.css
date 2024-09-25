@@ -147,7 +147,7 @@
 
 .service {
     position: absolute;
-    display: inline-block;
+    /* display: inline-block; */
     text-decoration: none;
     font-size: 30px;
     color: #000;
