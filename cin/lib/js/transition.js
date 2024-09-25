@@ -104,7 +104,7 @@ function handleGlobeTransition(section) {
         globe1.style.left = ''; // Center horizontally by subtracting half the width
         setTimeout(() => {
             globe1.style.top = '45%';  // Move to the bottom of section 3
-        }, 10);
+        }, 10); 
         globe1.style.position = 'fixed'; // Keep it in view during the scroll
         // globe1.style.position = 'absolute';
 
