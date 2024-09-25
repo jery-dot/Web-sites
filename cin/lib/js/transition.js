@@ -122,6 +122,8 @@ function handleGlobeTransition(section) {
             content.classList.remove('hidden');  // Display the HTML content
             video2.play();
         };
+        // video2.classList.remove('hidden');  // Show the second video
+        // content.classList.remove('hidden'); 
     } else {
         // Reset to initial state for section 1
         globe1.classList.remove('hidden');
