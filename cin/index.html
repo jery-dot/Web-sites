@@ -120,8 +120,8 @@
     <section id="section3" class="section section3">
         <div class="section3-content">
             <div class="text">
-                <h1 id="section-default-title">Why Choose Us?</h1>
-                <h1 id="section-title">Why Choose Us?</h1>
+                <h3 id="section-default-title">Why Choose Us ?</h3>
+                <h1 id="section-title"></h1>
                 <h2 id="section-subtitle"></h2>
                 <p id="section-description">
                 </p>
@@ -368,6 +368,7 @@
        // new CircleType(document.getElementById('planet-name')).radius(180);
         AOS.init();
        document.addEventListener('DOMContentLoaded', function() {
+        const sectionDefaultTitle = document.getElementById('section-default-title');
         const sectionTitle = document.getElementById('section-title');
         const sectionSubtitle = document.getElementById('section-subtitle');
         const sectionDescription = document.getElementById('section-description');
@@ -376,11 +377,11 @@
         // Diameter and radius of the circular arc  
         // const arcDiameter = 570; // Arc diameter
         // const arcRadius = arcDiameter / 2 - 50;
-         const screenWidth = window.innerWidth;
+        const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
         // Dynamically set the diameter and radius based on the viewport size
-        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.55; // Set the arc diameter to 80% of the smallest dimension
+        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.555; // Set the arc diameter to 80% of the smallest dimension
         const arcRadius = arcDiameter / 2;
 
         // Positioning planets in an arc
@@ -395,8 +396,9 @@
             const y = arcRadius * Math.sin((angle * Math.PI) / 180);
 
             // Rotate each link based on its angle to follow the arc curvature
-            link.style.transform = `translate(${x-15}px, ${y-17}px) rotate(${angle + 90}deg)`;
-            link.style.bottom = '10px';
+            link.style.transform = `translate(${x-30}px, ${y}px) rotate(${angle + 90}deg)`;
+            link.style.bottom = '15px';
+            link.style.marginLeft = '5px';
             link.style.fontWeight = '2rem';
             link.style.left = '50%';
             link.style.zIndex = 10;
@@ -409,13 +411,13 @@
         planetLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
-
+                sectionDefaultTitle.classList.add('hidden');
                 // Remove active state from all planets
-                planetLinks.forEach(link => link.style.transform = link.style.transform.replace(' translateY(-10px)', ''));
+                planetLinks.forEach(link => link.style.transform = link.style.transform.replace(' translateY(-15px)', ''));
 
                 // Set the clicked link to move up slightly
                 setTimeout(() => {
-                    this.style.transform += ' translateY(-10px)'; // Move the clicked planet up slightly
+                    this.style.transform += ' translateY(-15px)'; // Move the clicked planet up slightly
                 }, 300); // Delay for the transition effect
 
                 // Get data attributes from the clicked link

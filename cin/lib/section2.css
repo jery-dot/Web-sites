@@ -1,7 +1,7 @@
 /* Section 2 styling */
 .section2 {
     /* position: relative; */
-    background: url('../assets/section2/Nebula_1.jpg') center/cover no-repeat;
+    background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat;
     /* Section 2 background */
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,16 @@
     z-index: 1;
     /* Ensure this section comes on top of the video */
 }
-
+.section2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the RGBA values for color and opacity */
+    z-index: 0; /* Place this behind the content */
+}
 .section2-content {
     display: flex;
     align-items: center;

@@ -69,25 +69,43 @@ function scrollToSection(sectionIndex) {
 function handleGlobeTransition(section) {
     if (section === 1) {
         globe1.classList.remove('hidden');
-        globe1.style.position = 'fixed';
+        globe1.style.position = 'absolute';
+        // globe1.style.position = '-webkit - sticky !important';
+        // globe1.style.position = 'sticky !important';
         globe1.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
         globe1.style.transform = 'scale(0.5)';
         globe1.style.left = '40%';
         globe1.style.top = '95%';
-        globe1.style.position = 'absolute';
         section2.style.visibility = 'visible';
         // globe1.classList.add('reshap');
+        // Check if the footer of section 2 is reached
+        const footer = document.querySelector('.section2-content'); // Adjust selector as necessary
+        const footerRect = footer.getBoundingClientRect();
+
+        if (footerRect.top <= window.innerHeight && footerRect.bottom >= 0) {
+            // Apply specific property when footer is visible
+            // globe1.style.top = '5%';
+            globe1.style.transition = 'opacity 1s ease'; // Smooth transition for the property
+        } else {
+            globe1.style.top = '95%';
+            globe1.style.opacity = '1'; // Reset opacity if not in the footer area
+        }
 
     } else if (section === 2) {
         // Reset to initial state for section 1
         globe1.classList.remove('hidden');
-        globe1.style.width = '55%';
-        globe1.style.height = '100%';
+        globe1.style.position = 'fixed';
+        globe1.style.transition = 'transform 1s ease, right 7s ease-in-out, bottom 10s ease';
+        globe1.style.transform = 'scale(0.4, 0.5)';
+        // globe1.style.width = '55%';
+        // globe1.style.height = '100%';
 
         // Position it at the bottom center
         globe1.style.left = ''; // Center horizontally by subtracting half the width
-        globe1.style.top = '45%';  // Move to the bottom of section 3
-        // globe1.style.position = 'fixed'; // Keep it in view during the scroll
+        setTimeout(() => {
+            globe1.style.top = '45%';  // Move to the bottom of section 3
+        }, 10);
+        globe1.style.position = 'fixed'; // Keep it in view during the scroll
         // globe1.style.position = 'absolute';
 
     } else if (section === 3) {
