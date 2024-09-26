@@ -15,7 +15,7 @@
         body, html {
             height: 100%;
             scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: smooth;
             /*overflow-x: hidden;*/
         }
 
@@ -95,6 +95,7 @@
         </div>
         <div class="footer">
             <img id="glob1" src="assets/glob1.gif" alt="">
+            <!-- <img id="glob1" src="assets/globes/venus/venus0000.gif" alt=""> -->
         </div>
     </section>
 
@@ -205,6 +206,7 @@
        // new CircleType(document.getElementById('planet-name')).radius(180);
         AOS.init();
        document.addEventListener('DOMContentLoaded', function() {
+        const globe = document.getElementById('glob1');
         const sectionDefaultTitle = document.getElementById('section-default-title');
         const sectionTitle = document.getElementById('section-title');
         const sectionSubtitle = document.getElementById('section-subtitle');
@@ -248,24 +250,63 @@
         planetLinks.forEach(link => {
             link.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
-                sectionDefaultTitle.classList.add('hidden');
+                let sectionCurrentTitle = document.getElementById('section-title');
+                let sectionCurrentSubtitle = document.getElementById('section-subtitle');
+                let sectionCurrentDescription = document.getElementById('section-description');
+                
+                sectionDefaultTitle.classList.add('fade-up')
+                setTimeout(() => {
+                    sectionDefaultTitle.classList.add('hidden');
+                }, 300);
+
+
                 // Remove active state from all planets
                 planetLinks.forEach(link => link.style.transform = link.style.transform.replace(' translateY(-15px)', ''));
 
                 // Set the clicked link to move up slightly
-                setTimeout(() => {
+                // setTimeout(() => {
+                        sectionCurrentTitle.classList.remove('fade-in');
+                        sectionCurrentSubtitle.classList.remove('fade-in');
+                        sectionCurrentDescription.classList.remove('fade-in');
+                    // }, 500);
+                // setTimeout(() => {
                     this.style.transform += ' translateY(-15px)'; // Move the clicked planet up slightly
-                }, 300); // Delay for the transition effect
+                    sectionCurrentTitle.classList.add('fade-up')
+                    sectionCurrentSubtitle.classList.add('fade-up')
+                    sectionCurrentDescription.classList.add('fade-up')
+                // }, 300); // Delay for the transition effect
 
                 // Get data attributes from the clicked link
                 const planet = this.getAttribute('data-planet');
                 const subtitle = this.getAttribute('data-subtitle');
                 const description = this.getAttribute('data-description');
+                if(planet=='Mercury'){
+                    globe.src = 'assets/globes/mercury/mercury000.gif';
+                }else if(planet=='Venus'){
+                    globe.src = 'assets/globes/venus/venus0000.gif';
+                }else if(planet=='Earth'){
+                    globe.src = 'assets/globes/earth/earth000.gif';
+                }else if(planet=='Mars'){
+                    globe.src = 'assets/globes/mars/mars000.gif';
+                }else if(planet=='Jupiter'){
+                    globe.src = 'assets/globes/jupiter/Comp 1_3000.gif';
+                }else if(planet=='Saturn'){
+                    globe.src = 'assets/globes/sun/sun000.gif';
+                }else if(planet=='Uranus'){
+                    globe.src = 'assets/globes/earth/earth000.gif';
+                }else if(planet=='Neptune'){
+                    globe.src = 'assets/globes/earth/earth000.gif';
+                }
 
                 // Add transition classes for animation
-                sectionTitle.classList.add('hidden');
-                sectionSubtitle.classList.add('hidden');
-                sectionDescription.classList.add('hidden');
+                // setTimeout(() => {
+                //     sectionTitle.classList.add('hidden');
+                //     sectionSubtitle.classList.add('hidden');
+                //     sectionDescription.classList.add('hidden');
+                //     sectionCurrentTitle.classList.remove('fade-up');
+                //     sectionCurrentSubtitle.classList.remove('fade-up');
+                //     sectionCurrentDescription.classList.remove('fade-up');
+                // }, 500);
 
                 // Wait for transition to finish before updating text
                 setTimeout(() => {
@@ -273,11 +314,10 @@
                     sectionSubtitle.textContent = subtitle;
                     sectionDescription.textContent = description;
 
-                    // Remove transition classes to make them visible again
-                    sectionTitle.classList.remove('hidden');
-                    sectionSubtitle.classList.remove('hidden');
-                    sectionDescription.classList.remove('hidden');
-                }, 500); // Match this duration with the CSS transition duration
+                    sectionTitle.classList.add('fade-in');
+                    sectionSubtitle.classList.add('fade-in');
+                    sectionDescription.classList.add('fade-in');
+                }, 200); // Match this duration with the CSS transition duration*/
             });
         });
     });

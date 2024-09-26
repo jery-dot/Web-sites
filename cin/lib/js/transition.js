@@ -68,6 +68,25 @@ function scrollToSection(sectionIndex) {
     });
 }
 function handleGlobeTransition(section) {
+    // const planet = this.getAttribute('data-planet');
+    globe1.src = 'assets/glob1.gif';
+    // if (planet == 'Mercury') {
+    //     globe.src = 'assets/globes/mercury/mercury000.gif';
+    // } else if (planet == 'Venus') {
+    //     globe.src = 'assets/globes/venus/venus0000.gif';
+    // } else if (planet == 'Earth') {
+    //     globe.src = 'assets/globes/earth/earth000.gif';
+    // } else if (planet == 'Mars') {
+    //     globe.src = 'assets/globes/mars/mars000.gif';
+    // } else if (planet == 'Jupiter') {
+    //     globe.src = 'assets/globes/jupiter/Comp 1_3000.gif';
+    // } else if (planet == 'Saturn') {
+    //     globe.src = 'assets/globes/sun/sun000.gif';
+    // } else if (planet == 'Uranus') {
+    //     globe.src = 'assets/globes/earth/earth000.gif';
+    // } else if (planet == 'Neptune') {
+    //     globe.src = 'assets/globes/earth/earth000.gif';
+    // }
     if (section === 1) {
         globe1.classList.remove('hidden');
         globe1.style.position = 'absolute';
