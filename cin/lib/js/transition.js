@@ -5,6 +5,7 @@ const section1 = document.getElementById('section1');
 const section2 = document.getElementById('section2');
 const video1 = document.getElementById('video-1');
 const video2 = document.getElementById('video-2');
+const video3 = document.getElementById('video-3');
 const content = document.getElementById('section4-content');
 
 
@@ -124,6 +125,11 @@ function handleGlobeTransition(section) {
         };
         // video2.classList.remove('hidden');  // Show the second video
         // content.classList.remove('hidden'); 
+    } else if (section === 4) {
+
+        globe1.classList.add('hidden');
+        video3.play(); 
+
     } else {
         // Reset to initial state for section 1
         globe1.classList.remove('hidden');

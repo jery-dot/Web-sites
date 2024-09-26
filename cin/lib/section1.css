@@ -11,12 +11,14 @@
 }
 
 .section1 {
+    background: url('../assets/section2/no-back.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
+    z-index: 1;
     }
 
 .section1 .header, .section1 .footer {
