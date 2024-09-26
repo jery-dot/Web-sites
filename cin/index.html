@@ -15,7 +15,8 @@
         body, html {
             height: 100%;
             scroll-behavior: smooth;
-            scroll-snap-type: smooth;
+            scroll-snap-type:  y mandatory;
+            /* background-color: black; */
             /*overflow-x: hidden;*/
         }
 
@@ -63,13 +64,21 @@
             overflow-y: scroll; /* Enable vertical scrolling */
         }
 
-
+        .hide-section{
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+        .show-section{
+            opacity: 1;
+            transform: translateX(0);
+        }
 
     </style>
 </head>
 <body>
     <!-- Section1 -->
-    <section id="section1" class="section section1">
+    <section id="section1" class="section hide-section section1">
         <video autoplay muted loop id="background-video">
             <source src="assets/section1/bac-vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -100,7 +109,7 @@
     </section>
 
     <!-- Section2 -->
-    <section id="section2" class="section section2">
+    <section id="section2" class="section hide-section section2">
         <div class="section2-content">
             <div
                 data-aos="zoom-out-up"
@@ -118,7 +127,7 @@
 
 
     <!-- Section 3 -->
-    <section id="section3" class="section section3">
+    <section id="section3" class="section hide-section section3">
         <div class="section3-content">
             <div class="text">
                 <h3 id="section-default-title">Why Choose Us ?</h3>
@@ -145,8 +154,7 @@
     </section>
 
     <!-- Section 4 -->
-    <!-- Section 4 -->
-    <section id="section4" class="section section4">
+    <section id="section4" class="section hide-section section4">
         <video autoplay muted id="video-1" class="video-bg">
             <source src="assets/vid2.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -175,7 +183,7 @@
     </section>
     
     <!-- Section 5 -->
-    <section id="section5" class="section section5">
+    <section id="section5" class="section hide-section section5">
         <div class="video-container">
             <video autoplay muted loop class="fullscreen-video">
                 <source src="assets/section5/vid3.mp4" type="video/mp4">
@@ -205,6 +213,22 @@
     <script>
        // new CircleType(document.getElementById('planet-name')).radius(180);
         AOS.init();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry)=>{
+                console.log(entry);
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show-section');
+                }else{
+                    entry.target.classList.remove('show-section');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hide-section');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+
        document.addEventListener('DOMContentLoaded', function() {
         const globe = document.getElementById('glob1');
         const sectionDefaultTitle = document.getElementById('section-default-title');
@@ -285,7 +309,7 @@
                 }else if(planet=='Venus'){
                     globe.src = 'assets/globes/venus/venus0000.gif';
                 }else if(planet=='Earth'){
-                    globe.src = 'assets/globes/earth/earth000.gif';
+                    globe.src = 'assets/globes/earth/earth.gif';
                 }else if(planet=='Mars'){
                     globe.src = 'assets/globes/mars/mars000.gif';
                 }else if(planet=='Jupiter'){
@@ -296,6 +320,8 @@
                     globe.src = 'assets/globes/earth/earth000.gif';
                 }else if(planet=='Neptune'){
                     globe.src = 'assets/globes/earth/earth000.gif';
+                }else{
+                    globe.src = 'assets/glob1.gif';
                 }
 
                 // Add transition classes for animation

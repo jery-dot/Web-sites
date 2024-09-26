@@ -1,8 +1,10 @@
+
+
 let currentSection = 0;
 const sections = document.querySelectorAll('.section');
 const globe1 = document.getElementById('glob1');
 const section1 = document.getElementById('section1');
-const section2 = document.getElementById('section2');
+// const section2 = document.getElementById('section2');
 const video1 = document.getElementById('video-1');
 const video2 = document.getElementById('video-2');
 const video3 = document.getElementById('video-3');
@@ -69,7 +71,7 @@ function scrollToSection(sectionIndex) {
 }
 function handleGlobeTransition(section) {
     // const planet = this.getAttribute('data-planet');
-    globe1.src = 'assets/glob1.gif';
+    // globe1.src = 'assets/glob1.gif';
     // if (planet == 'Mercury') {
     //     globe.src = 'assets/globes/mercury/mercury000.gif';
     // } else if (planet == 'Venus') {
@@ -96,7 +98,7 @@ function handleGlobeTransition(section) {
         globe1.style.transform = 'scale(0.5)';
         globe1.style.left = '40%';
         globe1.style.top = '95%';
-        section2.style.visibility = 'visible';
+        // section2.style.visibility = 'visible';
         // globe1.classList.add('reshap');
         // Check if the footer of section 2 is reached
         const footer = document.querySelector('.section2-content'); // Adjust selector as necessary
@@ -162,6 +164,6 @@ function handleGlobeTransition(section) {
         globe1.style.transform = 'scale(1) translateX(0)';
         globe1.classList.remove('reshap');
         smallGlobe.style.transform = 'translate(50px, 50px)';
-        section2.style.visibility = 'hidden';
+        // section2.style.visibility = 'hidden';
     }
 }
