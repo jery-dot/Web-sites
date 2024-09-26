@@ -103,8 +103,8 @@
                 data-aos-duration="2000" class="button-84"role="button">MAKE A WISH</button>
         </div>
         <div class="footer">
-            <!-- <img id="glob1" src="assets/glob1.gif" alt=""> -->
-            <img id="glob1" src="assets/globes/earth/earth-main.gif" alt="">
+            <img id="glob1" src="assets/glob1.gif" alt="">
+            <!-- <img id="glob1" src="assets/globes/earth/earth-main.gif" alt=""> -->
         </div>
     </section>
 
@@ -113,8 +113,11 @@
         <div class="section2-content">
             <div
                 data-aos="zoom-out-up"
+                data-aos-offset="200"
+                data-aos-delay="50"
                 data-aos-duration="2000"
                 data-aos-mirror="true"
+                data-aos-once="false"
                 class="text">
                 <h1>creativity in nature</h1>
                 <h2>Digital Marketing Agency</h2>
@@ -226,16 +229,6 @@
         // hiddenElements.forEach((el) => observer.observe(el));
 
         AOS.init();
-
-        const gif = document.getElementById('glob1');
-
-        gif.addEventListener('load', () => {
-            setInterval(() => {
-                // Resetting the GIF by reassigning the src
-                gif.src = gif.src; // This restarts the GIF
-            }, 10); // Adjust the interval to match your GIF's duration
-        });
-
 
        document.addEventListener('DOMContentLoaded', function() {
         const globe = document.getElementById('glob1');
