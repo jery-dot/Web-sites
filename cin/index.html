@@ -78,7 +78,7 @@
 </head>
 <body>
     <!-- Section1 -->
-    <section id="section1" class="section hide-section section1">
+    <section id="section1" class="section section1">
         <video autoplay muted loop id="background-video">
             <source src="assets/section1/bac-vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -103,17 +103,18 @@
                 data-aos-duration="2000" class="button-84"role="button">MAKE A WISH</button>
         </div>
         <div class="footer">
-            <img id="glob1" src="assets/glob1.gif" alt="">
-            <!-- <img id="glob1" src="assets/globes/venus/venus0000.gif" alt=""> -->
+            <!-- <img id="glob1" src="assets/glob1.gif" alt=""> -->
+            <img id="glob1" src="assets/globes/earth/earth-main.gif" alt="">
         </div>
     </section>
 
     <!-- Section2 -->
-    <section id="section2" class="section hide-section section2">
+    <section id="section2" class="section section2">
         <div class="section2-content">
             <div
                 data-aos="zoom-out-up"
                 data-aos-duration="2000"
+                data-aos-mirror="true"
                 class="text">
                 <h1>creativity in nature</h1>
                 <h2>Digital Marketing Agency</h2>
@@ -127,7 +128,7 @@
 
 
     <!-- Section 3 -->
-    <section id="section3" class="section hide-section section3">
+    <section id="section3" class="section section3">
         <div class="section3-content">
             <div class="text">
                 <h3 id="section-default-title">Why Choose Us ?</h3>
@@ -154,7 +155,7 @@
     </section>
 
     <!-- Section 4 -->
-    <section id="section4" class="section hide-section section4">
+    <section id="section4" class="section section4">
         <video autoplay muted id="video-1" class="video-bg">
             <source src="assets/vid2.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -183,7 +184,7 @@
     </section>
     
     <!-- Section 5 -->
-    <section id="section5" class="section hide-section section5">
+    <section id="section5" class="section section5">
         <div class="video-container">
             <video autoplay muted loop class="fullscreen-video">
                 <source src="assets/section5/vid3.mp4" type="video/mp4">
@@ -208,25 +209,32 @@
             </div>
         </section> -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/peterhry/CircleType@2.3.1/dist/circletype.min.js"></script>
     <script src="lib/js/transition.js"></script>
     <script>
-       // new CircleType(document.getElementById('planet-name')).radius(180);
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach((entry)=>{
+        //         console.log(entry);
+        //         if(entry.isIntersecting){
+        //             entry.target.classList.add('show-section');
+        //         }else{
+        //             entry.target.classList.remove('show-section');
+        //         }
+        //     });
+        // });
+
+        // const hiddenElements = document.querySelectorAll('.hide-section');
+        // hiddenElements.forEach((el) => observer.observe(el));
+
         AOS.init();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry)=>{
-                console.log(entry);
-                if(entry.isIntersecting){
-                    entry.target.classList.add('show-section');
-                }else{
-                    entry.target.classList.remove('show-section');
-                }
-            });
-        });
+        const gif = document.getElementById('glob1');
 
-        const hiddenElements = document.querySelectorAll('.hide-section');
-        hiddenElements.forEach((el) => observer.observe(el));
+        gif.addEventListener('load', () => {
+            setInterval(() => {
+                // Resetting the GIF by reassigning the src
+                gif.src = gif.src; // This restarts the GIF
+            }, 10); // Adjust the interval to match your GIF's duration
+        });
 
 
        document.addEventListener('DOMContentLoaded', function() {
@@ -305,21 +313,21 @@
                 const subtitle = this.getAttribute('data-subtitle');
                 const description = this.getAttribute('data-description');
                 if(planet=='Mercury'){
-                    globe.src = 'assets/globes/mercury/mercury000.gif';
+                    globe.src = 'assets/globes/mercury/mercury.gif';
                 }else if(planet=='Venus'){
-                    globe.src = 'assets/globes/venus/venus0000.gif';
+                    globe.src = 'assets/globes/venus/venus.gif';
                 }else if(planet=='Earth'){
-                    globe.src = 'assets/globes/earth/earth.gif';
+                    globe.src = 'assets/globes/earth/earth-main.gif';
                 }else if(planet=='Mars'){
-                    globe.src = 'assets/globes/mars/mars000.gif';
+                    globe.src = 'assets/globes/mars/mars.gif';
                 }else if(planet=='Jupiter'){
-                    globe.src = 'assets/globes/jupiter/Comp 1_3000.gif';
+                    globe.src = 'assets/globes/jupiter/jupiter.gif';
                 }else if(planet=='Saturn'){
-                    globe.src = 'assets/globes/sun/sun000.gif';
+                    globe.src = 'assets/globes/sun/sun.gif';
                 }else if(planet=='Uranus'){
-                    globe.src = 'assets/globes/earth/earth000.gif';
+                    globe.src = 'assets/globes/earth/earth.gif';
                 }else if(planet=='Neptune'){
-                    globe.src = 'assets/globes/earth/earth000.gif';
+                    globe.src = 'assets/globes/earth/earth.gif';
                 }else{
                     globe.src = 'assets/glob1.gif';
                 }

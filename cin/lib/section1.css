@@ -18,7 +18,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    z-index: 1;
+    /* z-index: 1; */
     }
 
 .section1 .header, .section1 .footer {
