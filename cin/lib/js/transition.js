@@ -9,6 +9,7 @@ const video1 = document.getElementById('video-1');
 const video2 = document.getElementById('video-2');
 const video3 = document.getElementById('video-3');
 const content = document.getElementById('section4-content');
+const text2 = document.getElementById('sect2-text');
 
 
 // Initial globe1 styles for section 1
@@ -90,6 +91,16 @@ function handleGlobeTransition(section) {
     //     globe.src = 'assets/globes/earth/earth000.gif';
     // }
     if (section === 1) {
+        text2.classList.remove('hidden');
+        const textDiv = document.querySelector('.section2 .text');
+        if (textDiv) {
+            textDiv.setAttribute('data-aos', 'zoom-out-up');
+            textDiv.setAttribute('data-aos-offset', '200');
+            textDiv.setAttribute('data-aos-delay', '50');
+            textDiv.setAttribute('data-aos-duration', '2000');
+            textDiv.setAttribute('data-aos-mirror', 'true');
+            textDiv.setAttribute('data-aos-once', 'false');
+        }
         globe1.classList.remove('hidden');
         globe1.style.position = 'absolute';
         // globe1.style.position = '-webkit - sticky !important';
@@ -114,6 +125,7 @@ function handleGlobeTransition(section) {
         }
 
     } else if (section === 2) {
+        text2.classList.add('hidden');
         // Reset to initial state for section 1
         globe1.classList.remove('hidden');
         globe1.style.position = 'fixed';
@@ -152,6 +164,7 @@ function handleGlobeTransition(section) {
         video3.play(); 
 
     } else {
+        text2.classList.add('hidden');
         // Reset to initial state for section 1
         globe1.classList.remove('hidden');
         globe1.style.transform = 'scale(1)';

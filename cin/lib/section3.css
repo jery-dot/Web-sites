@@ -118,6 +118,8 @@
 }
 
 /* Fade Up Animation */
+
+/* Fade Up Animation */
 @keyframes fadeUp {
     0% {
         opacity: 1; /* Fully visible */

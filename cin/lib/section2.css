@@ -77,6 +77,25 @@
     /* margin-left: 100px; */
 }
 
+.section2 .text {
+    animation: fadeUp2 5s;
+}
+
+@keyframes fadeUp2 {
+    0% {
+        opacity: 0; /* Fully visible */
+        transform: translateY(50px); /* Start from original position */
+    }
+    100% {
+        opacity: 1; /* Fade out */
+        transform: translateY(0); /* Move up to 50px above its original position */
+    }
+}
+
+.fade-up2 {
+    animation: fadeUp2 0.5s !important;
+}
+
 /* Responsive adjustments for Section 2 */
 @media (max-width: 768px) {
     .section2 {
