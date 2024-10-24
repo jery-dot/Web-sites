@@ -16,27 +16,306 @@ const content = document.getElementById('section4-content');
 const text2 = document.getElementById('sect2-text');
 
 const vid_motion = document.getElementById('vid');
+$(document).ready(function () {
 
-// function checkVisibility() {
-//     sections.forEach(section => {
-//         const rect = section.getBoundingClientRect();
-//         const windowHeight = window.innerHeight;
+    $('body').bind('wheel', function (e) {
 
-//         // Check if 5% of the section is in view
-//         if (rect.top < windowHeight && rect.bottom > windowHeight * 0.95) {
-//             section.classList.remove('hidden'); // Make the section visible
-//         } else {
-//             section.classList.add('hidden'); // Hide the section
-//         }
-//     });
-// }
+        var counter = parseInt($('#hiddenInput').val());
+        var counter_circle = parseInt($('#hiddenInputCircle').val());
 
-// // Add scroll and load event listeners
-// window.addEventListener('scroll', checkVisibility);
-// window.addEventListener('load', checkVisibility);
+        if (e.originalEvent.wheelDelta / 120 > 0) {
 
-// Initially hide all sections
-// sections.forEach(section => section.classList.add('hidden'));
+            if (counter == -1) {
+
+                counter1 = counter + 1;
+                counter_circle_1 = counter_circle + 1;
+                $("section.section3").hide();
+                $("section.section1").show("slow");
+                $("section.section2").hide("slow");
+                $('video.myvideo2').animate({ left: '0px', top: '585px', width: '32%' }, {
+                    duration: 1000, queue: false, specialEasing: {
+                        width: "linear",
+                        height: "easeOutBounce"
+                    }
+                });
+
+                setTimeout(function () { updateCounter(counter1) }, 1000);
+
+            }
+            else if (counter == -2) {
+
+                counter1 = counter + 1;
+                counter_circle_1 = counter_circle + 1;
+                $("div.sec-3").hide();
+                $("div.sec-1").hide("slow");
+                $("div.sec-2").show("slow");
+                $('video.myvideo2').animate({ left: '650px', top: '245px', width: '32%' }, {
+                    duration: 1000, queue: false, specialEasing: {
+                        width: "linear",
+                        height: "easeOutBounce"
+                    }
+                });
+                setTimeout(function () { updateCounter(counter1) }, 1000);
+
+            }
+
+        } else {
+
+            counter1 = counter - 1;
+
+            if (counter1 == -1) {
+                $("div.sec-3").hide();
+                $("div.sec-1").hide("slow");
+                $("div.sec-2").show("slow");
+                $("div.h1").delay(400).show("slide", { direction: "right" }, 1000);
+                $("div.h3").delay(400).show("slide", { direction: "right" }, 1000);
+                $('video.myvideo2').animate({ left: '650px', top: '245px', width: '32%' }, {
+                    duration: 1000, queue: false, specialEasing: {
+                        width: "linear",
+                        height: "easeOutBounce"
+                    }
+                });
+
+                setTimeout(function () { updateCounter(counter1) }, 1000);
+
+                return;
+            } else if (counter1 == -2) {
+                $('#hiddenInput').val(counter1);
+                counter1 = parseInt(counter1);
+
+                $("div.sec-2").hide("slow");
+                $("div.sec-3").show("slow");
+                $('video.myvideo2').animate({ left: '0px', top: '472px', width: '340px' }, {
+                    duration: 1000, queue: false, specialEasing: {
+                        width: "linear",
+                        height: "easeOutBounce"
+                    }
+                });
+
+            } else {
+
+                if ($("div.sec-3").is(":visible")) {
+                    counter_circle_1 = $('#hiddenInputCircle').val();
+                    counter_circle_1 = parseInt(counter_circle_1) - 1;
+                    setTimeout(function () { updateCounterCircle(counter_circle_1) }, 500);
+
+                    if (counter_circle_1 == 0) {
+
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $(".text1").text("Sun").fadeIn('slow');
+                        $(".text2").text("Sun Description").fadeIn('slow');
+
+                        $("video.myvideo2").attr("src", "images/Sun.webm").animate({ left: '0px', top: '423px', width: '54%', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -1) {
+
+                        $('li.limenu.Venus').css("font-weight", "500");
+                        $('li.limenu.Earth').css("font-weight", "500");
+                        $('li.limenu.Mars').css("font-weight", "500");
+                        $('li.limenu.Jupiter').css("font-weight", "500");
+                        $('li.limenu.Saturn').css("font-weight", "500");
+                        $('li.limenu.Uranus').css("font-weight", "500");
+                        $('li.limenu.Neptune').css("font-weight", "500");
+
+                        $('li.limenu.Mercury a').css("font-weight", "900");
+                        $(".text1").text("Guaranteed Revenue or your Money Back").fadeIn('slow');
+                        $(".text2").text("Tired of getting everything except revenue? Most vendors who give you reach, engagement, promises, likes and efforts but no revenue but we stand behind our services and guarantee realistic revenue or your money back.").fadeIn('slow');
+
+                        $("video.myvideo2").attr("src", "images/Mercury.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -2) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Venus a').css("font-weight", "900");
+
+                        $(".text1").text("24/7 Customer Care").fadeIn('slow');
+                        $(".text2").text("Are you an early morning bird or late night owl? At CIN, we are available, 24 hours a day, 7 days a week and 365 days a year. We understand that business never stops and creative ideas and calamities can happen anytime.").fadeIn('slow');
+
+
+                        $("video.myvideo2").attr("src", "images/Venus.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -3) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Earth a').css("font-weight", "900");
+
+                        $(".text1").text("Responsive Relationship Manager").fadeIn('slow');
+                        $(".text2").text("Are you trying to reach your client manager for decades but not getting a proper response? No worries, CIN has heard your prayers. As a CIN client, you will be assigned a responsive “Super Man (ager)” who will reach out to you faster than Superman.").fadeIn('slow');
+
+                        $("video.myvideo2").attr("src", "images/Earth.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -4) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Mars a').css("font-weight", "900");
+
+                        $(".text1").text("Data Driven Decision Making").fadeIn('slow');
+                        $(".text2").text("Are you following superstition to predict rain? Superstition will give you only assumptions while weather forecasts will give you accurate updates based on data analysis. Similarly, CIN will follow your data instead of assumptions.").fadeIn('slow');
+
+
+                        $("video.myvideo2").attr("src", "images/Mars.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -5) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Jupiter a').css("font-weight", "900");
+
+                        $(".text1").text("One Stop Shop").fadeIn('slow');
+                        $(".text2").text("Have you become a common man in a government office where your file is being shifted from desk to desk? At CIN, we offer a complete range of services to ensure that you don’t have to find different vendors for different services.").fadeIn('slow');
+
+
+                        $("video.myvideo2").attr("src", "images/Jupiter.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -6) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+
+                        $('li.limenu.Saturn a').css("font-weight", "900");
+                        $(".text1").text("Experienced Team").fadeIn('slow');
+                        $(".text2").text("Are you expecting fine cuisine but getting dhaba food instead? Experience matters. This is why at CIN, we only hire professionals with at least 5 years of industry experience. This guarantees a mature, knowledgeable and error-free handling of your account so you get a BMW while expecting an Ambassador.").fadeIn('slow');
+
+                        $("video.myvideo2").attr("src", "images/Saturn.webm").animate({ left: '13px', top: '306px', width: '690px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -7) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Neptune a').css("font-weight", "500");
+
+                        $('li.limenu.Uranus a').css("font-weight", "900");
+
+                        $(".text1").text("Data Security").fadeIn('slow');
+                        $(".text2").text("Are you sure your comp is not using your data? Most companies leak data like a cheap Chinese Tire tube. At CIN, we will ensure your data is safer than a bank safe so your competition can never take advantage of you.").fadeIn('slow');
+
+                        $("video.myvideo2").attr("src", "images/Uranus.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else if (counter_circle_1 == -8) {
+
+                        $('li.limenu.Mercury a').css("font-weight", "500");
+                        $('li.limenu.Venus a').css("font-weight", "500");
+                        $('li.limenu.Earth a').css("font-weight", "500");
+                        $('li.limenu.Mars a').css("font-weight", "500");
+                        $('li.limenu.Jupiter a').css("font-weight", "500");
+                        $('li.limenu.Saturn a').css("font-weight", "500");
+                        $('li.limenu.Uranus a').css("font-weight", "500");
+
+                        $('li.limenu.Neptune a').css("font-weight", "900");
+                        $(".text1").text("Timely delivery").fadeIn('slow');
+                        $(".text2").text("What is the use of medicine after the patient is dead? At CIN, we understand the concept of urgency and the importance of timely delivery. Therefore we meet and beat every deadline so that your business runs like clockwork.").fadeIn();
+
+                        $("video.myvideo2").attr("src", "images/Neptune.webm").animate({ left: '0px', top: '472px', width: '340px', display: "block" }, {
+                            duration: 1000, queue: false, specialEasing: {
+                                width: "linear",
+                                height: "easeOutBounce"
+                            }
+                        });
+
+                    } else {
+
+
+                        $('#hiddenInputCircle').val(-7);
+
+
+
+                    }
+
+
+                }
+            }
+
+        }
+
+
+
+    });
+});
+
 
 // Function to detect the current section based on scroll position
 function detectCurrentSection() {
