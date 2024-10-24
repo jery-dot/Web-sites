@@ -1,7 +1,6 @@
 /* Section 2 styling */
 .section2 {
     /* position: relative; */
-    background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat;
     /* Section 2 background */
     display: flex;
     justify-content: space-between;
@@ -19,7 +18,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Adjust the RGBA values for color and opacity */
+    /* background: rgba(0, 0, 0, 0.5); */
     z-index: 0; /* Place this behind the content */
 }
 .section2-content {
@@ -29,7 +28,7 @@
 }
 
 .section2 .text {
-    width: 40%;
+    width: 60%;
     padding: 20px;
     color: white;
     /* Adjust text color */
@@ -38,24 +37,25 @@
 }
 
 .section2 .text h1 {
-    font-size: 5.5rem;
+    font-size: 3.5rem;
+    text-transform: uppercase;
     /* Adjust the size as needed */
     margin-bottom: 10px;
     color: #ffffff;
 }
 
 .section2 .text h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     /* Adjust the size as needed */
     margin-bottom: 10px;
     color: #ffffff;
 }
 
 .section2 .text p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     /* Adjust the size as needed */
     margin-bottom: 10px;
-    text-align: justify;
+    /* text-align: justify; */
     color: #ffffff;
 }
 

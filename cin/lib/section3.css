@@ -2,7 +2,7 @@
 .section3 {
     position: relative;
     height: 100vh;
-    background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat;
+    /* background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,6 +139,21 @@
     100% {
         opacity: 1;
     }
+}
+
+@keyframes fadeDownLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.fade-down-left {
+  animation: fadeDownLeft 1s ease-in-out;
 }
 /* Classes to trigger animations */
 .fade-up {

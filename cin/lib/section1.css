@@ -11,7 +11,6 @@
 }
 
 .section1 {
-    background: url('../assets/section2/no-back.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -4,6 +4,10 @@ let currentSection = 0;
 const sections = document.querySelectorAll('.section');
 const globe1 = document.getElementById('glob1');
 const section1 = document.getElementById('section1');
+const section2 = document.getElementById('section2');
+const section3 = document.getElementById('section3');
+const section4 = document.getElementById('section4');
+const section5 = document.getElementById('section5');
 // const section2 = document.getElementById('section2');
 const video1 = document.getElementById('video-1');
 const video2 = document.getElementById('video-2');
@@ -11,31 +15,29 @@ const video3 = document.getElementById('video-3');
 const content = document.getElementById('section4-content');
 const text2 = document.getElementById('sect2-text');
 
+const vid_motion = document.getElementById('vid');
 
-// Initial globe1 styles for section 1
-// globe1.style.transition = 'transform 2s ease, left 2s ease, top 2s ease';
-// globe1.style.position = 'absolute';
-// globe1.style.left = '50%'; // Center in section 1
-// globe1.style.top = '80%';  // Adjust this as needed
-// 
+// function checkVisibility() {
+//     sections.forEach(section => {
+//         const rect = section.getBoundingClientRect();
+//         const windowHeight = window.innerHeight;
 
-/*document.addEventListener('wheel', (event) => {
-    if (event.deltaY > 0) {
-        // Scrolling down
-        if (currentSection < sections.length - 1) {
-            currentSection++;
-            scrollToSection(currentSection);
-            handleGlobeTransition(currentSection);
-        }
-    } else {
-        // Scrolling up
-        if (currentSection > 0) {
-            currentSection--;
-            scrollToSection(currentSection);
-            handleGlobeTransition(currentSection);
-        }
-    }
-});*/
+//         // Check if 5% of the section is in view
+//         if (rect.top < windowHeight && rect.bottom > windowHeight * 0.95) {
+//             section.classList.remove('hidden'); // Make the section visible
+//         } else {
+//             section.classList.add('hidden'); // Hide the section
+//         }
+//     });
+// }
+
+// // Add scroll and load event listeners
+// window.addEventListener('scroll', checkVisibility);
+// window.addEventListener('load', checkVisibility);
+
+// Initially hide all sections
+// sections.forEach(section => section.classList.add('hidden'));
+
 // Function to detect the current section based on scroll position
 function detectCurrentSection() {
     let currentSectionIndex = 0;
@@ -71,26 +73,12 @@ function scrollToSection(sectionIndex) {
     });
 }
 function handleGlobeTransition(section) {
-    // const planet = this.getAttribute('data-planet');
-    // globe1.src = 'assets/glob1.gif';
-    // if (planet == 'Mercury') {
-    //     globe.src = 'assets/globes/mercury/mercury000.gif';
-    // } else if (planet == 'Venus') {
-    //     globe.src = 'assets/globes/venus/venus0000.gif';
-    // } else if (planet == 'Earth') {
-    //     globe.src = 'assets/globes/earth/earth000.gif';
-    // } else if (planet == 'Mars') {
-    //     globe.src = 'assets/globes/mars/mars000.gif';
-    // } else if (planet == 'Jupiter') {
-    //     globe.src = 'assets/globes/jupiter/Comp 1_3000.gif';
-    // } else if (planet == 'Saturn') {
-    //     globe.src = 'assets/globes/sun/sun000.gif';
-    // } else if (planet == 'Uranus') {
-    //     globe.src = 'assets/globes/earth/earth000.gif';
-    // } else if (planet == 'Neptune') {
-    //     globe.src = 'assets/globes/earth/earth000.gif';
-    // }
     if (section === 1) {
+        // section1.classList.add('hidden');
+        // section2.classList.remove('hidden');
+        // section3.classList.add('hidden');
+        // section4.classList.add('hidden');
+        // section5.classList.add('hidden');
         text2.classList.remove('hidden');
         const textDiv = document.querySelector('.section2 .text');
         if (textDiv) {
@@ -101,50 +89,53 @@ function handleGlobeTransition(section) {
             textDiv.setAttribute('data-aos-mirror', 'true');
             textDiv.setAttribute('data-aos-once', 'false');
         }
-        globe1.classList.remove('hidden');
-        globe1.style.position = 'absolute';
-        // globe1.style.position = '-webkit - sticky !important';
-        // globe1.style.position = 'sticky !important';
-        globe1.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
-        globe1.style.transform = 'scale(0.5)';
-        globe1.style.left = '40%';
-        globe1.style.top = '95%';
-        // section2.style.visibility = 'visible';
-        // globe1.classList.add('reshap');
-        // Check if the footer of section 2 is reached
+        vid_motion.classList.remove('hidden');
+        vid_motion.style.position = 'absolute';
+        vid_motion.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
+        vid_motion.style.transform = 'scale(0.5)';
+        vid_motion.style.left = '40%';
+        vid_motion.style.top = '95%';
         const footer = document.querySelector('.section2-content'); // Adjust selector as necessary
         const footerRect = footer.getBoundingClientRect();
 
         if (footerRect.top <= window.innerHeight && footerRect.bottom >= 0) {
             // Apply specific property when footer is visible
-            // globe1.style.top = '5%';
-            globe1.style.transition = 'opacity 1s ease'; // Smooth transition for the property
+            // vid_motion.style.top = '5%';
+            vid_motion.style.transition = 'opacity 1s ease'; // Smooth transition for the property
         } else {
-            globe1.style.top = '95%';
-            globe1.style.opacity = '1'; // Reset opacity if not in the footer area
+            vid_motion.style.top = '95%';
+            vid_motion.style.opacity = '1'; // Reset opacity if not in the footer area
         }
 
     } else if (section === 2) {
+        // section1.classList.add('hidden');
+        // section2.classList.add('hidden');
+        // section3.classList.remove('hidden');
+        // section4.classList.add('hidden');
+        // section5.classList.add('hidden');
         text2.classList.add('hidden');
         // Reset to initial state for section 1
-        globe1.classList.remove('hidden');
-        globe1.style.position = 'fixed';
-        globe1.style.transition = 'transform 1s ease, right 7s ease-in-out, bottom 10s ease';
-        globe1.style.transform = 'scale(0.4, 0.5)';
-        // globe1.style.width = '55%';
-        // globe1.style.height = '100%';
+        vid_motion.classList.remove('hidden');
+        vid_motion.style.position = 'fixed';
+        vid_motion.style.transition = 'transform 1s ease, right 7s ease-in-out, bottom 10s ease';
+        vid_motion.style.transform = 'scale(0.5, 0.5)';
 
         // Position it at the bottom center
-        globe1.style.left = ''; // Center horizontally by subtracting half the width
+        vid_motion.style.left = ''; // Center horizontally by subtracting half the width
         setTimeout(() => {
-            globe1.style.top = '45%';  // Move to the bottom of section 3
+            vid_motion.style.top = '45%';  // Move to the bottom of section 3
         }, 10); 
-        globe1.style.position = 'fixed'; // Keep it in view during the scroll
-        // globe1.style.position = 'absolute';
+        vid_motion.style.position = 'fixed'; // Keep it in view during the scroll
+        // vid_motion.style.position = 'absolute';
 
     } else if (section === 3) {
 
-        globe1.classList.add('hidden');
+        // section1.classList.add('hidden');
+        // section2.classList.add('hidden');
+        // section3.classList.add('hidden');
+        // section4.classList.remove('hidden');
+        // section5.classList.add('hidden');
+        vid_motion.classList.add('hidden');
         video1.classList.remove('hidden');
         video2.classList.add('hidden');
         content.classList.add('hidden');
@@ -160,22 +151,34 @@ function handleGlobeTransition(section) {
         // content.classList.remove('hidden'); 
     } else if (section === 4) {
 
-        globe1.classList.add('hidden');
+
+        // section1.classList.add('hidden');
+        // section2.classList.add('hidden');
+        // section3.classList.add('hidden');
+        // section4.classList.add('hidden');
+        // section5.classList.remove('hidden');
+        vid_motion.classList.add('hidden');
         video3.play(); 
 
     } else {
+
+        // section1.classList.remove('hidden');
+        // section2.classList.add('hidden');
+        // section3.classList.add('hidden');
+        // section4.classList.add('hidden');
+        // section5.classList.add('hidden');
         text2.classList.add('hidden');
         // Reset to initial state for section 1
-        globe1.classList.remove('hidden');
-        globe1.style.transform = 'scale(1)';
-        globe1.style.left = '50%'; // Center in section 1
-        globe1.style.top = '80%';  // Adjust as needed for section 1
+        vid_motion.classList.remove('hidden');
+        vid_motion.style.transform = 'scale(1)';
+        vid_motion.style.left = '50%'; // Center in section 1
+        vid_motion.style.top = '80%';  // Adjust as needed for section 1
 
-        globe1.style.position = 'absolute';
-        globe1.style.top = '';
-        globe1.style.left = '';
-        globe1.style.transform = 'scale(1) translateX(0)';
-        globe1.classList.remove('reshap');
+        vid_motion.style.position = 'absolute';
+        vid_motion.style.top = '';
+        vid_motion.style.left = '';
+        vid_motion.style.transform = 'scale(1) translateX(0)';
+        vid_motion.classList.remove('reshap');
         smallGlobe.style.transform = 'translate(50px, 50px)';
         // section2.style.visibility = 'hidden';
     }
