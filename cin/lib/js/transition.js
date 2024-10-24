@@ -74,6 +74,7 @@ function scrollToSection(sectionIndex) {
 }
 function handleGlobeTransition(section) {
     if (section === 1) {
+        vid_motion.src = 'assets/globs/sun.webm';
         // section1.classList.add('hidden');
         // section2.classList.remove('hidden');
         // section3.classList.add('hidden');
@@ -129,6 +130,7 @@ function handleGlobeTransition(section) {
         // vid_motion.style.position = 'absolute';
 
     } else if (section === 3) {
+        vid_motion.src = 'assets/globs/sun.webm';
 
         // section1.classList.add('hidden');
         // section2.classList.add('hidden');
