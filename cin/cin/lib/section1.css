@@ -1,0 +1,131 @@
+/* Full-screen section */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    /* z-index: 1; */
+    }
+
+.section1 .header, .section1 .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase;
+    word-spacing: 5px;
+    letter-spacing: 5px;
+}
+
+.section1 .header img {
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.section1 .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.section1 .header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 60px;
+    color: #f0f0f0;
+}
+
+.section1 .button-84 {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 20;
+}
+
+.section1 .button-84:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styling */
+.section1 .footer img {
+    width: 1000px;
+    height: 800px;
+    margin-bottom: -60%;
+    z-index: 2;
+}
+
+/* Responsive adjustments for Section 1 */
+@media (max-width: 768px) {
+    
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .section1 .header img {
+        margin-top: 50%;
+        max-width: 350px;
+        margin-bottom: 20px;
+    }
+
+    .section1 .header h1 {
+        /* margin-top: 400px; */
+        font-size: 2rem;
+        word-spacing: 2px;
+        letter-spacing: 2px;
+    }
+
+    .section1 .header h2 {
+        font-size: 1.2rem;
+    }
+
+    .section1 .button-84 {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .section1 .footer img {
+        width: 120%;
+        /* bottom: -80%; */
+        left: 50%;
+        margin-top: 35%;
+
+        /* transform: scale(1); */
+        height: 120%;
+    }
+}
+
+.myvid1 {
+    position: fixed !important;
+    width: 50%;
+    z-index: 10;
+    transition: all 1s ease-in-out;
+    will-change: transform, left, bottom;
+}
+
+.section2-content {
+    position: relative;
+    z-index: 1;
+}
