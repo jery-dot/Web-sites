@@ -137,7 +137,7 @@ function handleGlobeTransition(section) {
                 vid_motion.classList.remove('animate21');
             }, 5000); 
         }
-        // vid_motion.classList.remove('hidden');
+        vid_motion.classList.remove('hidden');
         vid_motion.style.position = 'absolute';
         vid_motion.style.left = '40%';
         vid_motion.style.top = '100%'; // Start position (off-screen)
@@ -176,7 +176,7 @@ function handleGlobeTransition(section) {
         
         text2.classList.add('hidden');
         // Reset to initial state for section 1
-        // vid_motion.classList.remove('hidden');
+        vid_motion.classList.remove('hidden');
         // vid_motion.style.position = 'fixed';
         vid_motion.style.position = 'absolute';
         if (!isUp) {
@@ -198,7 +198,7 @@ function handleGlobeTransition(section) {
     } else if (section === 3) {
         vid_motion.src = 'assets/globs/sun.webm';
 
-        // vid_motion.classList.add('hidden');
+        vid_motion.classList.add('hidden');
         video1.classList.remove('hidden');
         video2.classList.add('hidden');
         content.classList.add('hidden');
@@ -214,7 +214,7 @@ function handleGlobeTransition(section) {
         // content.classList.remove('hidden'); 
     } else if (section === 4) {
 
-        // vid_motion.classList.add('hidden');
+        vid_motion.classList.add('hidden');
         video3.play(); 
 
     } else {

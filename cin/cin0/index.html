@@ -83,7 +83,8 @@
             left: 0;
             right: 0;
             margin: 0 auto;
-            bottom: -70%;
+            bottom: -34%;
+            z-index: 5 !important;
         }
         /* Define the fade-down-right animation */
         @keyframes fadeDownRight {
@@ -132,8 +133,8 @@
         }
         @keyframes vidMotionAnimation21 {
             0% {
-                left: -10%;
-                top: 40%; /* Start position (off-screen) */
+                left: 10%;
+                top: 70%; /* Start position (off-screen) */
                 transform: scale(0.5);
                 opacity: 1; /* Start with opacity 0 */
             }
@@ -194,9 +195,7 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    <video playsinline autoplay loop muted width="50%" class="myvideo2" id="vid">
-        <source src="images/sun.webm" type="video/webm">
-    </video>
+    
     <!-- Section1 -->
     <section id="section1" class="section section1">
         <!-- <video autoplay muted loop id="background-video">
@@ -250,7 +249,9 @@
 
 
     <!-- Section 3 -->
-
+    <video playsinline autoplay loop muted width="50%" class="myvideo2" id="vid">
+        <source src="images/sun.webm" type="video/webm">
+    </video>
     <section id="section3" class="section section3">
         <div class="section3-content">
             <div class="text">
