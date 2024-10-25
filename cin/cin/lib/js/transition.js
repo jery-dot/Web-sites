@@ -221,19 +221,20 @@ function handleGlobeTransition(section) {
 
         text2.classList.add('hidden');
         // Reset to initial state for section 1
-        // vid_motion.classList.remove('hidden');
+        vid_motion.classList.remove('hidden');
         vid_motion.style.transform = 'scale(1)';
         vid_motion.style.left = '50%'; // Center in section 1
         vid_motion.style.top = '80%';  // Adjust as needed for section 1
-        vid_motion.style.transition = 'transform 5s ease, left 5s ease, top 5s ease, opacity 1s ease'; // Include opacity in transition
+
         vid_motion.style.position = 'absolute';
         vid_motion.style.top = '';
         vid_motion.style.left = '';
-        vid_motion.style.transform = 'scale(1) translateX(0)';
-        // vid_motion.classList.remove('reshap');
-        // Start the animation after a slight delay
-       
-        // section2.style.visibility = 'hidden';
+        // vid_motion.style.transform = 'scale(1) translateX(0)';
+        vid_motion.classList.remove('reshap');
+        vid_motion.classList.remove('animate21');
+        vid_motion.classList.remove('animate22');
+        vid_motion.classList.remove('animate3');
+        // smallGlobe.style.transform = 'translate(50px, 50px)';
     }
 }
 

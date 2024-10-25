@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIN-Web</title>
+    <title>Cin </title>
     <link href="lib/sec1-bot.css" rel="stylesheet"> 
     <link href="lib/section1.css" rel="stylesheet"> 
     <link href="lib/section2.css" rel="stylesheet"> 
@@ -133,7 +133,7 @@
         @keyframes vidMotionAnimation21 {
             0% {
                 left: -10%;
-                top: 50%; /* Start position (off-screen) */
+                top: 40%; /* Start position (off-screen) */
                 transform: scale(0.5);
                 opacity: 1; /* Start with opacity 0 */
             }
@@ -146,8 +146,8 @@
         }
         @keyframes vidMotionAnimation22 {
             0% {
-                left: -15%;
-                top: 150%; /* Start position (off-screen) */
+                left: -10%;
+                top: 120%; /* Start position (off-screen) */
                 transform: scale(0.5, 0.5);
                 opacity: 1; /* Start with opacity 0 */
             }
@@ -160,16 +160,16 @@
         }
         .animate21 {
             position: absolute;
-            animation: vidMotionAnimation21 5s ease forwards; /* Apply animation when class added */
+            animation: vidMotionAnimation21 4s ease forwards; /* Apply animation when class added */
         }
         .animate22 {
             position: absolute;
-            animation: vidMotionAnimation22 5s ease forwards; /* Apply animation when class added */
+            animation: vidMotionAnimation22 4s ease forwards; /* Apply animation when class added */
         }
          @keyframes vidMotionAnimation3 {
             0% {
                 left: 40%;
-                top: -80%; /* Start position (off-screen) */
+                top: -50%; /* Start position (off-screen) */
                 transform: scale(0.5);
                 opacity: 1; /* Start with opacity 0 */
             }
@@ -182,7 +182,7 @@
         }
         .animate3 {
             position: absolute;
-            animation: vidMotionAnimation3 5s ease forwards; /* Apply animation when class added */
+            animation: vidMotionAnimation3 4s ease forwards; /* Apply animation when class added */
         }
     </style>
 </head>
@@ -194,6 +194,9 @@
             Your browser does not support the video tag.
         </video>
     </div>
+    <video playsinline autoplay loop muted width="50%" class="myvideo2" id="vid">
+        <source src="images/sun.webm" type="video/webm">
+    </video>
     <!-- Section1 -->
     <section id="section1" class="section section1">
         <!-- <video autoplay muted loop id="background-video">
@@ -228,17 +231,6 @@
     <!-- Section2 -->
     <section id="section2" class="section section2">
         <div class="section2-content">
-            <!-- <div class="col-lg-7">
-                <h1>Creativity In Nature</h1>
-                <h3>Digital Marketing Agency</h3>
-                <p>
-                    CIN is a joyous celebration of human creativity. We are a group of hand-picked, like-minded
-                    professionals who have come together to make the ultimate creative team. Each of us is a
-                    game-changing expert in our respective areas. Together, we are CIN. We help clients harness
-                    the magic of social media, develop a domineering web presence, generate leads, grow brands
-                    and straight-up design their products, processes and projects as needed.
-                </p>
-            </div>   -->
             <div id="sect2-text"
                 data-aos="zoom-out-up"
                 data-aos-offset="200"
@@ -250,17 +242,14 @@
                 <h2>Digital Marketing Agency</h2>
                 <p>CIN is a joyous celebration of human creativity. We are a group of hand-picked, like-minded professionals who have come together to make the ultimate creative team. Each of us is a game-changing expert in our respective areas. Together, we are CIN. We help clients harness the magic of social media, develop a domineering web presence, generate leads, grow brands and straight-up design their products, processes and projects as needed.</p>
             </div>
-            <div class="image">
+            <!-- <div class="image"> -->
                 <!-- <img data-aos="fade-down-right" src="assets/glob1.gif" alt="Glob1" id="small-globe"> -->
-            </div>
+            <!-- </div> -->
         </div>
     </section>
 
 
     <!-- Section 3 -->
-    <video playsinline autoplay loop muted width="50%" class="myvideo2" id="vid">
-        <source src="images/sun.webm" type="video/webm">
-    </video>
 
     <section id="section3" class="section section3">
         <div class="section3-content">
@@ -368,7 +357,7 @@
         const screenHeight = window.innerHeight;
 
         // Dynamically set the diameter and radius based on the viewport size
-        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.5; // Set the arc diameter to 80% of the smallest dimension
+        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.53; // Set the arc diameter to 80% of the smallest dimension
         const arcRadius = arcDiameter / 2;
 
         // Positioning planets in an arc
