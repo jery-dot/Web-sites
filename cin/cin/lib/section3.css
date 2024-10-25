@@ -1,0 +1,184 @@
+/* Section 3 styling */
+.section3 {
+    position: relative;
+    height: 100vh;
+    /* background: url('../assets/section2/bg_vid_2_after.JPG') center/cover no-repeat; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.section3-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.section3 .text {
+    margin-top: -400px;
+    position: relative;
+}
+
+.section3 .text h1, .section3 .text h2 {
+    color: #ffffff;
+}
+
+.section3 .text h1 {
+    margin-top: 150px;
+    font-weight: normal;
+     text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+
+.section3 .text h2 {
+    font-size: 3.5rem;
+    word-spacing: 2px;
+    letter-spacing: 5px;
+}
+
+.section3 .text p {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-top: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+/* Globe styling */
+.section3 .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.section3 #current-globe {
+    width: 1000px;
+    height: auto;
+    margin-bottom: -700px;
+    transition: all 0.5s ease-in-out;
+    z-index: -21;
+}
+
+/* Planet links styling */
+.section3 .planet-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 510px; /* Half of the diameter */
+    width: 1020px; /* Full diameter */
+    margin: 0 auto; /* Center the container */
+    z-index: 10;
+}
+
+.section3 .planet-links {
+    position: absolute;
+    width: 100%;
+    height: 510px;
+    margin-left: -10px;
+    z-index: 10;
+    /* Planet links will be positioned by JavaScript */
+}
+
+.section3 .planet-links a {
+    position: absolute; /* To be positioned by JavaScript */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.7rem;
+    /* margin: 5px 0px; */
+    transform-origin: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section3 .planet-links a:hover {
+    color: #ffcc00;
+    /* Highlight color */
+}
+.section3 .text #section-default-title{
+    margin-top: 250px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 6.5rem;
+    transition: opacity 5s ease, transform 5s ease;
+}
+
+/* Initial state for smooth transitions */
+.section3 .text h1, .text h2, .text p {
+    animation: fadeIn 5s;
+    /* animation: fadeUp 1s forwards, fadeIn 4s forwards; */
+    /* opacity: 0; Start hidden */
+    /* transition: opacity 0.5s ease; Smooth transition */
+}
+
+/* Fade Up Animation */
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+    0% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Start from original position */
+    }
+    100% {
+        opacity: 0; /* Fade out */
+        transform: translateY(-50px); /* Move up to 50px above its original position */
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeDownLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.fade-down-left {
+  animation: fadeDownLeft 1s ease-in-out;
+}
+/* Classes to trigger animations */
+.fade-up {
+    animation: fadeUp 0.5s !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s !important;
+}
+
+/* Planet Links Adjustments */
+/* Removed redundant .planet-container and planet-links styling that was duplicated */
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .section3 .text h1 {
+        font-size: 3rem;
+    }
+
+    .section3 .text p {
+        font-size: 1.5rem;
+    }
+
+    .section3 #current-globe {
+        width: 100%;
+        height: auto;
+    }
+}
