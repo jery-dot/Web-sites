@@ -57,10 +57,6 @@ const easeOutBounce = (t) => {
     else return 7.5625 * (t -= 2.625 / 2.75) * t + 0.984375;
 };
 
-let previousScrollY = window.scrollY; // Initialize previous scroll position
-let isUp = true;
-// let currentSection = 0; // Global variable for the current section
-
 
 // Function to detect the current section based on scroll position
 function detectCurrentSection() {
@@ -83,20 +79,6 @@ function detectCurrentSection() {
 
     // Optionally, log the current section index for debugging
     console.log('Current Section:', currentSection);
-
-    // Determine scroll direction
-    if (window.scrollY > previousScrollY) {
-        console.log('Scrolling down');
-        isUp = false;
-        // Handle scroll down actions here
-    } else if (window.scrollY < previousScrollY) {
-        console.log('Scrolling up');
-        isUp = true;
-        // Handle scroll up actions here
-    }
-
-    // Update the previous scroll position
-    previousScrollY = window.scrollY;
 
     // You can also trigger functions or animations based on the detected section
     handleGlobeTransition(currentSection); // Call your transition function based on the new current section
@@ -125,18 +107,19 @@ function handleGlobeTransition(section) {
             textDiv.setAttribute('data-aos-mirror', 'true');
             textDiv.setAttribute('data-aos-once', 'false');
         }
+        // Animate the video
+        // vid_motion.classList.remove('hidden');
+        // vid_motion.style.position = 'absolute';
+        // vid_motion.style.transition = 'transform 2s ease, right 2s ease, bottom 2s ease';
+        // vid_motion.style.transform = 'scale(0.5)';
+        // vid_motion.style.left = '40%';
+        // vid_motion.style.top = '100%';
+        // Animate the video
         vid_motion.style.opacity = '1'; // Start with opacity 0
-        if (isUp) {
-            vid_motion.classList.add('animate22');
-            setTimeout(() => {
-                vid_motion.classList.remove('animate22');
-            }, 5000); // Match this duration with your animation duration
-        } else {
-            vid_motion.classList.add('animate21');
-            setTimeout(() => {
-                vid_motion.classList.remove('animate21');
-            }, 5000); 
-        }
+        vid_motion.classList.add('animate22');
+        setTimeout(() => {
+            vid_motion.classList.remove('animate22');
+        }, 5000); // Match this duration with your animation duration
         // vid_motion.classList.remove('hidden');
         vid_motion.style.position = 'absolute';
         vid_motion.style.left = '40%';
@@ -179,12 +162,7 @@ function handleGlobeTransition(section) {
         // vid_motion.classList.remove('hidden');
         // vid_motion.style.position = 'fixed';
         vid_motion.style.position = 'absolute';
-        if (!isUp) {
-            vid_motion.classList.add('animate3');
-            setTimeout(() => {
-                vid_motion.classList.remove('animate3');
-            }, 5000); // Match this duration with your animation duration
-        } 
+
         // Position it at the bottom center
         vid_motion.style.left = ''; // Center horizontally by subtracting half the width
         setTimeout(() => {

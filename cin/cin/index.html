@@ -27,9 +27,9 @@
             opacity: 1;
         }
 
-        .section[style*='display: none'] {
+        /*.section[style*='display: none'] {
             opacity: 0;
-        }
+        }*/
         .section {
             scroll-snap-align: start;
             scroll-snap-stop: always; 
@@ -129,6 +129,60 @@
         .fade-up-left {
             position: absolute;
             animation: fadeUpLeft 4s ease forwards; /* Trigger the animation */
+        }
+        @keyframes vidMotionAnimation21 {
+            0% {
+                left: -10%;
+                top: 50%; /* Start position (off-screen) */
+                transform: scale(0.5);
+                opacity: 1; /* Start with opacity 0 */
+            }
+            100% {
+                top: 100%; /* End position (adjust as needed) */
+                left: 40%;
+                transform: scale(0.5); /* Final scale */
+                opacity: 1; /* Final opacity */
+            }
+        }
+        @keyframes vidMotionAnimation22 {
+            0% {
+                left: -15%;
+                top: 150%; /* Start position (off-screen) */
+                transform: scale(0.5, 0.5);
+                opacity: 1; /* Start with opacity 0 */
+            }
+            100% {
+                top: 100%; /* End position (adjust as needed) */
+                left: 40%;
+                transform: scale(0.5); /* Final scale */
+                opacity: 1; /* Final opacity */
+            }
+        }
+        .animate21 {
+            position: absolute;
+            animation: vidMotionAnimation21 5s ease forwards; /* Apply animation when class added */
+        }
+        .animate22 {
+            position: absolute;
+            animation: vidMotionAnimation22 5s ease forwards; /* Apply animation when class added */
+        }
+         @keyframes vidMotionAnimation3 {
+            0% {
+                left: 40%;
+                top: -80%; /* Start position (off-screen) */
+                transform: scale(0.5);
+                opacity: 1; /* Start with opacity 0 */
+            }
+            100% {
+                top: 45%; /* End position (adjust as needed) */
+                left: 0;
+                transform: scale(0.5, 0.5); /* Final scale */
+                opacity: 1; /* Final opacity */
+            }
+        }
+        .animate3 {
+            position: absolute;
+            animation: vidMotionAnimation3 5s ease forwards; /* Apply animation when class added */
         }
     </style>
 </head>
@@ -314,7 +368,7 @@
         const screenHeight = window.innerHeight;
 
         // Dynamically set the diameter and radius based on the viewport size
-        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.555; // Set the arc diameter to 80% of the smallest dimension
+        const arcDiameter = Math.min(screenWidth, screenHeight) * 0.5; // Set the arc diameter to 80% of the smallest dimension
         const arcRadius = arcDiameter / 2;
 
         // Positioning planets in an arc
@@ -330,7 +384,7 @@
 
             // Rotate each link based on its angle to follow the arc curvature
             link.style.transform = `translate(${x-30}px, ${y}px) rotate(${angle + 90}deg)`;
-            link.style.bottom = '15px';
+            link.style.bottom = '40px';
             link.style.marginLeft = '5px';
             link.style.fontWeight = '2rem';
             link.style.left = '50%';
