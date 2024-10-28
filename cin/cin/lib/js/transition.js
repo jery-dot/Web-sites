@@ -439,7 +439,8 @@ document.addEventListener("DOMContentLoaded", function() {
       // Update video source with transition
       sunVideo.style.opacity = "0";
       setTimeout(() => {
-        sunVideo.src = `assets/globs/${planet.toLowerCase()}.webm`;
+        sunVideo.src = `assets/globs/${planet}.webm`;
+        // sunVideo.src = `assets/globs/${planet.toLowerCase()}.webm`;
         sunVideo.style.opacity = "1";
       }, 300);
 
