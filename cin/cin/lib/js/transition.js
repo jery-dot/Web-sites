@@ -440,6 +440,7 @@ document.addEventListener("DOMContentLoaded", function() {
       sunVideo.style.opacity = "0";
       setTimeout(() => {
         sunVideo.src = `assets/globs/${planet}.webm`;
+        console.log(`================== Globe Name: ${planet} =================`)
         // sunVideo.src = `assets/globs/${planet.toLowerCase()}.webm`;
         sunVideo.style.opacity = "1";
       }, 300);
